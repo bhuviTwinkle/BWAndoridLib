@@ -71,18 +71,18 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("release") {
-            groupId = "com.github.bhuviTwinkle"
-            artifactId = "swipe-list-item"
-            version = "9.0"
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                groupId = "com.github.bhuviTwinkle"
+                artifactId = "swipe-list-item"
+                version = "10.0"
 
-            // Ensure the Android components are created first
-            afterEvaluate {
-                from(components["release"])
+                from(components["release"]) // now this component exists
             }
         }
     }
 }
+
 
