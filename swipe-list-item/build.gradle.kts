@@ -70,7 +70,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.bhuviTwinkle"
                 artifactId = "swipe-list-item"
-                version = "1.1"
+                version = "3.0"
             }
         }
     }
