@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -33,8 +35,10 @@ android {
         kotlinCompilerExtensionVersion = "1.5.14"
     }
 
-    kotlinOptions {
-        jvmTarget = "17"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
+        }
     }
     buildFeatures {
         compose = true
@@ -70,15 +74,19 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                groupId = "com.github.bhuviTwinkle"
-                artifactId = "swipe-list-item"
-                version = "11.0"
+subprojects {
+    afterEvaluate {
+        if (plugins.hasPlugin("com.android.library")) {
+            publishing {
+                publications {
+                    create<MavenPublication>("release") {
+                        from(components["release"])
 
-                from(components["release"])
+                        groupId = "com.github.bhuviTwinkle"
+                        artifactId = "swipe-list-item"
+                        version = "12.0"
+                    }
+                }
             }
         }
     }
