@@ -74,23 +74,27 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
 
-subprojects {
-    afterEvaluate {
-        if (plugins.hasPlugin("com.android.library")) {
-            publishing {
-                publications {
-                    create<MavenPublication>("release") {
-                        from(components["release"])
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                groupId = "com.github.bhuviTwinkle"
+                artifactId = "swipe-list-item"
+                version = "13.0"
 
-                        groupId = "com.github.bhuviTwinkle"
-                        artifactId = "swipe-list-item"
-                        version = "12.0"
-                    }
-                }
+                // publish Android release variant
+                from(components["release"])
+
+                // publish AAR explicitly for JitPack (non-deprecated path)
+                artifact(project.layout.buildDirectory.file(
+                    "outputs/aar/swipe-list-item-release.aar"
+                ))
             }
         }
     }
 }
+
+
 
 
 
