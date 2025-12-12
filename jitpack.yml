@@ -1,9 +1,6 @@
 jdk:
-  - openjdk11
+  - openjdk17
 
 before_install:
-  - yes | sdkmanager --licenses
-  - sdkmanager "platforms;android-34" "build-tools;34.0.0"
+  - ./scripts/prepareJitpackEnvironment.sh
 
-install:
-  - ./gradlew clean assembleRelease
