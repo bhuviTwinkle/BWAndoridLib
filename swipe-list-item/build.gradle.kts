@@ -39,6 +39,15 @@ android {
     buildFeatures {
         compose = true
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()   // optional but recommended
+            withJavadocJar()   // optional
+        }
+    }
+
+
 }
 
 dependencies {
@@ -67,7 +76,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.github.bhuviTwinkle"
             artifactId = "swipe-list-item"
-            version = "8.0"
+            version = "9.0"
 
             // Ensure the Android components are created first
             afterEvaluate {
