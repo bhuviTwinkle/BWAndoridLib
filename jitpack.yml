@@ -1,0 +1,10 @@
+jdk:
+  - openjdk17
+
+before_install:
+  # JitPack requires this to allow SDK installation
+  - sdkmanager "platforms;android-34"
+
+install:
+  # This is important. Publishing needs the release AAR created first.
+  - ./gradlew clean assembleRelease
