@@ -42,8 +42,7 @@ android {
 
     publishing {
         singleVariant("release") {
-            withSourcesJar()   // optional but recommended
-            withJavadocJar()   // optional
+            withSourcesJar()
         }
     }
 
@@ -77,12 +76,13 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 groupId = "com.github.bhuviTwinkle"
                 artifactId = "swipe-list-item"
-                version = "10.0"
+                version = "11.0"
 
-                from(components["release"]) // now this component exists
+                from(components["release"])
             }
         }
     }
 }
+
 
 
