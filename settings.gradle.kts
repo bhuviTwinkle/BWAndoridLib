@@ -21,5 +21,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "BWAndoridLib"
-include(":app")
 include(":swipe-list-item")

@@ -62,6 +62,6 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    implementation("com.github.bhuviTwinkle:BWAndoridLib:11.0")
+    //implementation("com.github.bhuviTwinkle:BWAndoridLib:11.0")
     //implementation(project(":swipe-list-item"))
 }
